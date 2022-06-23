@@ -65,7 +65,9 @@
 
                     <!--css 파일에 그리드의 각 높이를 자동으로 50픽셀값을 주면 되지만 합계그리드의 윗칸의 공백을위해 그리드각각의 테이블에 사이즈를 입력.-->
                     <!--합계그리드는 인풋의 적절한 모양 태그인 스타일을 적용하고 폰트사이즈와 셀의 높이를 지정함.-->
-             
+                    <input type="text" class="result" name="output" value="0" style="font-size:21px; height: 50px;" readonly />
+                    <input type="button" class="total" value="TOTAL" onclick="showSum(); audioadd.play();" />
+                    <input type="button" value="CLR" onClick="ClearFields(); audiodel.play();" />
 
 
                     <table class="space" width="0" height="10"><tr><td><strong></strong></td></table>
