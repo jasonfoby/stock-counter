@@ -15,18 +15,18 @@ body{
 
 
 .stockcounter{
-    width: 317px;
+    width: 387px;
     border: 1px solid #333;
     background-color: #ccc;
     padding: 10px;
 }
 
-    .stockcounter form {
-        display: grid;
-        grid-template-columns: 85px 65px 65px 65px;
-        /*grid-auto-rows: 50px;*/
-        grid-gap: 5px;
-    }
+.stockcounter form {
+    display: grid;
+    grid-template-columns: 85px 65px 65px 65px 65px;
+    /*grid-auto-rows: 50px;*/
+    grid-gap: 5px;
+}
 
 .stockcounter form input{
     border: 2px solid #333;
@@ -51,8 +51,16 @@ body{
     background-color: #d53c20;
 }
 
+.stockcounter form .clr{
+    background-color: #22791f;
+}
+
 .stockcounter form .total {
     background-color: #3cbdad;
+}
+
+.stockcounter form .exp {
+    background-color: #531033;
 }
 
 .stockcounter form .space{
@@ -61,9 +69,22 @@ body{
 
 .stockcounter form .title{
     border:none;
-    grid-column: span 4;
+    grid-column: span 5;
+}
+
+.stockcounter form .input{
+    
+    grid-column: span 5;
 }
 
 .stockcounter form .result{
     grid-column: span 2;
 }
+
+#dropdown-menu>li {
+    text-align: center;
+}
+
+
+
+
