@@ -1,0 +1,332 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    /* 아래의 코드는 각 브라우저별로 적용한 속성. 내림차순으로 크롬 파이어폭스 사파리 오페라 */
+    /* animation: fadein 1s;
+    -moz-animation: fadein 1s;
+    -webkit-animation: fadein 1s; 
+    -o-animation: fadein 1s;  */
+}
+/* 아래는 페이드인 기능을 좀더 직관적으로 만들어준다. */
+/* @keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+} */
+
+body {
+    background-color: #688a8a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #ddd;
+    width: 387px;
+    height: 600px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 3px 3px 7px rgba(000,000,000,0.3);
+    visibility: visible;
+    opacity: 1;
+    transition: all 1s;     
+}
+
+
+
+form {
+    display: grid;
+    grid-template-columns: 85px 65px 65px 65px 65px;
+    grid-gap: 5px;
+}
+
+.container form .title {
+    grid-column: span 5;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.navbar {
+    grid-column: span 5;
+    display: flex;
+    justify-content: center;
+    padding: 5px
+}
+
+.mens {
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    column-gap: 10px;
+}
+
+.container form .sub-title {
+    grid-column: span 5;
+    text-align: center;
+/*    font-weight: bolder;*/
+    font-size: 12px;
+    padding: 5px;
+}
+
+.mens-content {
+    background-color: #ccc;
+    width: 52px;
+    list-style-type: none;
+    margin-top: -7px;
+    margin-left: 137px;
+    box-shadow: 1px 1px 3px #aaa;
+    display: none;
+}
+
+.view {
+    display: block;
+}
+
+#mens-btn {
+    border: none;
+    background-color: rgba(255,255,255,0);
+    font-size: 16px;
+}
+
+.womens-content {
+    background-color: #ccc;
+    width: 53px;
+    list-style-type: none;
+    margin-top: -7px;
+    margin-left: 191px;
+    box-shadow: 1px 1px 3px #aaa;
+    display: none;
+}
+
+#womens-btn {
+    border: none;
+    background-color: rgba(255,255,255,0);
+    font-size: 16px;
+}
+
+.view1 {
+    display: block;
+}
+
+.content-body {
+    text-align: center;
+    display: flex;
+    z-index: 1;                                                                           
+    position: fixed;
+}
+
+.women-margin {
+    margin-left: 2px;
+}
+
+.select-menu {
+    background-color: inherit;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.select-menu:hover {
+    background-color: #aaa;
+}
+
+
+.child-content {
+    background-color: #ccc;
+    width: 53px;
+    list-style-type: none;
+    margin-top: -7px;
+    margin-left: 246px;
+    box-shadow: 1px 1px 3px #aaa;
+    display: none;
+}
+
+.view2 {
+    display: block;
+}
+
+#child-btn {
+    border: none;
+    background-color: rgba(255,255,255,0);
+    font-size: 16px;
+}
+
+.men-click-child {
+    margin-left: 57px
+}
+
+.women-click-child {
+    margin-left: 2px
+}
+
+.size-box {
+    background-color: rgba(222, 184, 135);
+    font-weight: bolder;
+    font-size: 19px;
+    box-shadow: 1px 1px 3px rgba(181, 179, 179);
+    border: 2px solid #333;
+    border-radius: 3px;
+    width: 85px;
+    height: 48px;
+    text-align: center;
+    /*  자간  */
+    letter-spacing: -0.7px;
+}
+
+.readonly-input {
+    font-weight: bolder;
+    font-size: 20px;
+    background-color: rgb(242, 242, 242);
+    box-shadow: 1px 1px 3px rgba(181, 179, 179);
+    border: 2px solid #333;
+    border-radius: 3px;
+    width: 65px;
+    height: 48px;
+    text-align: center;
+    user-select: none
+}
+
+.add-btn {
+    background-color: rgba(96, 161, 130);
+    font-weight: bolder;
+    font-size: 19px;
+    box-shadow: 1px 1px 3px rgba(181, 179, 179);
+    border: 2px solid #333;
+    border-radius: 3px;
+    width: 65px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center
+}
+
+
+
+.del-btn {
+    background-color: rgba(213, 59, 32);
+    font-weight: bolder;
+    font-size: 19px;
+    box-shadow: 1px 1px 3px rgba(181, 179, 179);
+    border: 2px solid #333;
+    border-radius: 3px;
+    width: 65px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center    
+}
+
+.clr-btn {
+    background-color: rgba(40, 124, 166);
+    font-weight: bolder;
+    font-size: 19px;
+    box-shadow: 1px 1px 3px rgba(181, 179, 179);
+    border: 2px solid #333;
+    border-radius: 3px;
+    width: 65px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center
+}
+
+.space {
+    height: 5px;
+    grid-column: span 5;
+}
+
+.style-num {
+    background-color: rgb(242, 242, 242);
+    border-radius: 3px;
+    border: 2px solid #333;
+    grid-column: 5;
+    width: 365px;
+    height: 35px;
+    font-size: 16px;
+    text-align: center;
+    /*  무조건 대문자  */
+    text-transform: uppercase;
+    
+}
+
+.total {
+    border-radius: 3px;
+    border: 2px solid #333;
+    width: 85px;
+    height: 48px;
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
+    background-color: rgb(242, 242, 242);
+    box-shadow: 1px 1px 3px rgba(181, 179, 179);
+}
+
+.exp-btn {
+    background-color: rgba(27, 89, 34);
+    font-weight: bolder;
+    font-size: 19px;
+    box-shadow: 1px 1px 3px rgba(181, 179, 179);
+    border: 2px solid #333;
+    border-radius: 3px;
+    width: 65px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+}
+
+
+
+
+
+.navname {
+    user-select: none;
+}
+
+
+
+
+
+.input-content label {
+  display: inline-block;
+background-color: rgba(96, 161, 130);
+    font-weight: bolder;
+    font-size: 19px;
+    box-shadow: 1px 1px 3px rgba(181, 179, 179);
+    border: 2px solid #333;
+    border-radius: 3px;
+    width: 65px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center
+}
+
+.input-content input[type="file"] {  /* type="file" 폼 숨기기 */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+}
+
+td {
+    text-align: center;
+    width: 100px;
+}
