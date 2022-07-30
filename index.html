@@ -10,8 +10,8 @@
 </head>
     <body>
     
-
-<table id="excel">
+<!-- css의 .table에서 display: none으로 숨겨둠 -->
+<table id="excel" class="table">
     <tr>
         <td scope="col" style="font-weight:bold;">STYLE</td>
         <td scope="col" style="font-weight:bold;">XS 90</td>
@@ -22,13 +22,13 @@
         <td scope="col" style="font-weight:bold;">XXL 115</td>
     </tr>
     <tr>
-        <td></td>
+        <td id="style"></td>
         <td id="xs90">0</td>
-        <td id="S95">0</td>
-        <td id="M100">0</td>
-        <td id="L105">0</td>
-        <td id="XL110">0</td>
-        <td id="XXL115">0</td>
+        <td id="s95">0</td>
+        <td id="m100">0</td>
+        <td id="l105">0</td>
+        <td id="xl110">0</td>
+        <td id="xxl115">0</td>
     </tr>
 
 </table>
@@ -147,13 +147,11 @@
                     <input id="totalinput" class="total" name="total" value="0" readonly>
                     <input id="total" type="button" class="add-btn" value="TOTAL" onclick="result()" readonly>
                     <input id="clrtotal" type="button" class="clr-btn" value="CLR" onclick="document.form.totalinput.value=0;" readonly>
-                    <button id="export" type="button" class="exp-btn" onclick="exportToExcel('export')" value="EXCEL" readonly>EXCEL</button>
+                    <button id="export" type="button" class="exp-btn" onclick="exportToExcel('excel')" value="EXCEL" readonly>EXCEL</button>
                     <!--   for속성으로 아래 인풋폼으로 대처해준다. 레이블은 css속성으로 숨겨주고 레이블과 인풋이 같이 존재한다.  -->
                     <label for="ex_file">LOAD</label> 
                     <input id="ex_file" class="add-btn" value="LOAD" type="file" accept=".csv" readonly>
                     
-
-
 
                     
                 </form>
@@ -275,7 +273,7 @@
 
 
 
-        
+    <!--  -->
         <script>
 
             function exportToExcel(formID, filename = ''){
@@ -316,11 +314,28 @@
 
         <script>
 
-            
-                const num = document.getElementById('input90').value;
-                document.getElementById('xs90').innerHTML = num;
+                var inputbox = document.getElementById('place-input');
 
-            
+                inputbox.onkeyup = function(){
+                    document.getElementById('style').innerHTML = inputbox.value;
+                }
+
+                document.getElementById('add90').addEventListener('click', function(){ document.getElementById('xs90').innerHTML = document.getElementById( 'input90').value; })
+                document.getElementById('add95').addEventListener('click', function(){ document.getElementById('s95').innerHTML = document.getElementById( 'input95').value; })
+                document.getElementById('add100').addEventListener('click', function(){ document.getElementById('m100').innerHTML = document.getElementById( 'input100').value; })
+                document.getElementById('add105').addEventListener('click', function(){ document.getElementById('l105').innerHTML = document.getElementById( 'input105').value; })
+                document.getElementById('add110').addEventListener('click', function(){ document.getElementById('xl110').innerHTML = document.getElementById( 'input110').value; })
+                document.getElementById('add115').addEventListener('click', function(){ document.getElementById('xxl115').innerHTML = document.getElementById( 'input115').value; }) 
+                
+                
+                document.getElementById('del90').addEventListener('click', function(){ document.getElementById('xs90').innerHTML = document.getElementById( 'input90').value; })
+                document.getElementById('del95').addEventListener('click', function(){ document.getElementById('s95').innerHTML = document.getElementById( 'input95').value; })
+                document.getElementById('del100').addEventListener('click', function(){ document.getElementById('m100').innerHTML = document.getElementById( 'input100').value; })
+                document.getElementById('del105').addEventListener('click', function(){ document.getElementById('l105').innerHTML = document.getElementById( 'input105').value; })
+                document.getElementById('del110').addEventListener('click', function(){ document.getElementById('xl110').innerHTML = document.getElementById( 'input110').value; })
+                document.getElementById('del115').addEventListener('click', function(){ document.getElementById('xxl115').innerHTML = document.getElementById( 'input115').value; }) 
+
+
 
         </script>
 

@@ -329,4 +329,9 @@ background-color: rgba(96, 161, 130);
 td {
     text-align: center;
     width: 100px;
+    text-transform: uppercase;
+}
+
+.table {
+    display: none;
 }
