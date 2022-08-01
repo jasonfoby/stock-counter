@@ -6,74 +6,106 @@
     <!--  모바일에서 확대방지가 포함되어있음. maximum-scale=1.0, user-scalable=no" -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+
     <title>Document</title>
 </head>
     <body>
     
-<!-- css의 .table에서 display: none으로 숨겨둠 -->
-<table id="excel" class="table">
-    <tr>
-        <td scope="col" style="font-weight:bold;">STYLE</td>
-        <td scope="col" style="font-weight:bold;">XS 90</td>
-        <td scope="col" style="font-weight:bold;">X 95</td>
-        <td scope="col" style="font-weight:bold;">M 100</td>
-        <td scope="col" style="font-weight:bold;">L 105</td>
-        <td scope="col" style="font-weight:bold;">XL 110</td>
-        <td scope="col" style="font-weight:bold;">XXL 115</td>
-    </tr>
-    <tr>
-        <td id="style"></td>
-        <td id="xs90">0</td>
-        <td id="s95">0</td>
-        <td id="m100">0</td>
-        <td id="l105">0</td>
-        <td id="xl110">0</td>
-        <td id="xxl115">0</td>
-    </tr>
+            <!-- excel로 출력 테이블폼 css의 .table에서 display: none으로 숨겨둠 -->
+            <table id="excel" class="table">
+                <tr>
+                    <td scope="col" style="font-weight:bold;">STYLE</td>
+                    <td scope="col" style="font-weight:bold;">XS 90</td>
+                    <td scope="col" style="font-weight:bold;">X 95</td>
+                    <td scope="col" style="font-weight:bold;">M 100</td>
+                    <td scope="col" style="font-weight:bold;">L 105</td>
+                    <td scope="col" style="font-weight:bold;">XL 110</td>
+                    <td scope="col" style="font-weight:bold;">XXL 115</td>
+                    <td scope="col" style="font-weight:bold;">TOTAL</td>
+                </tr>
+                <tr>
+                    <td id="style"></td>
+                    <td id="xs90">0</td>
+                    <td id="s95">0</td>
+                    <td id="m100">0</td>
+                    <td id="l105">0</td>
+                    <td id="xl110">0</td>
+                    <td id="xxl115">0</td>
+                    <td id="totaltable">0</td>
+                </tr>
+            </table>
 
-</table>
 
 
 
-    
+            <!-- table로 입력 테이블폼 css의 .table에서 display: none으로 숨겨둠 -->
+            <table id="importexcel" class="table">
+                <tr>
+                    <td scope="col" style="font-weight:bold;">STYLE</td>
+                    <td scope="col" style="font-weight:bold;">XS 90</td>
+                    <td scope="col" style="font-weight:bold;">X 95</td>
+                    <td scope="col" style="font-weight:bold;">M 100</td>
+                    <td scope="col" style="font-weight:bold;">L 105</td>
+                    <td scope="col" style="font-weight:bold;">XL 110</td>
+                    <td scope="col" style="font-weight:bold;">XXL 115</td>
+                    <td scope="col" style="font-weight:bold;">TOTAL</td>
+                </tr>
+                <tr>
+                    <td id="styleout"></td>
+                    <td id="xs90out">0</td>
+                    <td id="s95out">0</td>
+                    <td id="m100out">0</td>
+                    <td id="l105out">0</td>
+                    <td id="xl110out">0</td>
+                    <td id="xxl115out">0</td>
+                    <td id="totaltableout">0</td>
+                </tr>
+            </table>
+
+
+
+
     <div class="container">
 
-        <form class="head">
-            <label class="title">재고 카운터</label>
-            <label class="sub-title">현장에서 수시 실사를 모바일 하나로 가능합니다!</label>
-        </form>
-        
-        
+            <form class="head">
+                <label class="title">재고 카운터</label>
+                <label class="sub-title">현장에서 수시 실사를 모바일 하나로 가능합니다!</label>
+            </form>
+
+            <!-- 밑줄 -->
             <hr>
-        
-            
+
             <form class="navbar">
-            <div class="mens">
-                <span>HOME</span>
-                <hr>
-                <button id="mens-btn" type="button">남성</button>
-                <hr>
-                <button id="womens-btn" type="button">여성</button>
-                <hr>
-                <button id="child-btn" type="button">아동</button>
-            </div>                        
-        </form>
-        
-        
+                <div class="mens">
+                    <span>HOME</span>
+                    <hr>
+                    <button id="mens-btn" type="button">남성</button>
+                    <hr>
+                    <button id="womens-btn" type="button">여성</button>
+                    <hr>
+                    <button id="child-btn" type="button">아동</button>
+                </div>                        
+            </form>
+
+
+
             <div class="content-body">
-                    <ul class="mens-content">
-                        <li class="select-menu">상의</li>
-                        <li class="select-menu">하의</li>
-                    </ul>                
-                    <ul class="womens-content">
-                        <li class="select-menu">상의</li>
-                        <li class="select-menu">하의</li>
-                    </ul>
-                    <ul class="child-content">
-                        <li class="select-menu">상의</li>
-                        <li class="select-menu">하의</li>
-                    </ul>
-                </div>
+                <ul class="mens-content">
+                    <li class="select-menu">상의</li>
+                    <li class="select-menu">하의</li>
+                </ul>                
+                <ul class="womens-content">
+                    <li class="select-menu">상의</li>
+                    <li class="select-menu">하의</li>
+                </ul>
+                <ul class="child-content">
+                    <li class="select-menu">상의</li>
+                    <li class="select-menu">하의</li>
+                </ul>
+            </div>
 
 
 
@@ -150,7 +182,7 @@
                     <button id="export" type="button" class="exp-btn" onclick="exportToExcel('excel')" value="EXCEL" readonly>EXCEL</button>
                     <!--   for속성으로 아래 인풋폼으로 대처해준다. 레이블은 css속성으로 숨겨주고 레이블과 인풋이 같이 존재한다.  -->
                     <label for="ex_file">LOAD</label> 
-                    <input id="ex_file" class="add-btn" value="LOAD" type="file" accept=".csv" readonly>
+                    <input id="ex_file" class="add-btn" value="LOAD" type="file" accept=".xls" readonly>
                     
 
                     
@@ -161,7 +193,7 @@
 
 
 
-    <!--  네비게이션 스크립트  -->
+        <!--  네비게이션 스크립트  -->
         <script>
 
             document.getElementById('mens-btn').addEventListener('click', function(){
@@ -191,8 +223,8 @@
         </script>
 
 
-    <!--  값 추가 스크립트 OLD -->
-    <!--
+        <!--  값 추가 스크립트 OLD -->
+        <!--
             <script>
                 document.getElementById('add90').addEventListener('click', function(){
                     document.form.input90.value++;
@@ -222,8 +254,7 @@
     -->
 
 
-
-    <!--   음수방지 스크립트   -->
+        <!--   음수방지 스크립트   -->
         <script>
             function delstop1(){
                 if (document.form.input90.value > 0 ){
@@ -254,8 +285,7 @@
         </script>        
 
 
-
-    <!--    합산 스크립트     -->
+        <!--    합산 스크립트     -->
         <script>
 
             function result(){
@@ -272,8 +302,45 @@
         </script>
 
 
+        <!-- 가상 테이블에 입력되는 javascript 폼 -->
+        <script>
 
-    <!--  -->
+            var inputbox = document.getElementById('place-input');
+            inputbox.onkeyup = function(){
+                document.getElementById('style').innerHTML = inputbox.value;
+            }
+
+            document.getElementById('add90').addEventListener('click', function(){ document.getElementById('xs90').innerHTML = document.getElementById( 'input90').value; })
+            document.getElementById('add95').addEventListener('click', function(){ document.getElementById('s95').innerHTML = document.getElementById( 'input95').value; })
+            document.getElementById('add100').addEventListener('click', function(){ document.getElementById('m100').innerHTML = document.getElementById( 'input100').value; })
+            document.getElementById('add105').addEventListener('click', function(){ document.getElementById('l105').innerHTML = document.getElementById( 'input105').value; })
+            document.getElementById('add110').addEventListener('click', function(){ document.getElementById('xl110').innerHTML = document.getElementById( 'input110').value; })
+            document.getElementById('add115').addEventListener('click', function(){ document.getElementById('xxl115').innerHTML = document.getElementById( 'input115').value; }) 
+
+
+            document.getElementById('del90').addEventListener('click', function(){ document.getElementById('xs90').innerHTML = document.getElementById( 'input90').value; })
+            document.getElementById('del95').addEventListener('click', function(){ document.getElementById('s95').innerHTML = document.getElementById( 'input95').value; })
+            document.getElementById('del100').addEventListener('click', function(){ document.getElementById('m100').innerHTML = document.getElementById( 'input100').value; })
+            document.getElementById('del105').addEventListener('click', function(){ document.getElementById('l105').innerHTML = document.getElementById( 'input105').value; })
+            document.getElementById('del110').addEventListener('click', function(){ document.getElementById('xl110').innerHTML = document.getElementById( 'input110').value; })
+            document.getElementById('del115').addEventListener('click', function(){ document.getElementById('xxl115').innerHTML = document.getElementById( 'input115').value; }) 
+
+
+            document.getElementById('clr90').addEventListener('click', function(){ document.getElementById('xs90').innerHTML = document.getElementById( 'input90').value; })
+            document.getElementById('clr95').addEventListener('click', function(){ document.getElementById('s95').innerHTML = document.getElementById( 'input95').value; })
+            document.getElementById('clr100').addEventListener('click', function(){ document.getElementById('m100').innerHTML = document.getElementById( 'input100').value; })
+            document.getElementById('clr105').addEventListener('click', function(){ document.getElementById('l105').innerHTML = document.getElementById( 'input105').value; })
+            document.getElementById('clr110').addEventListener('click', function(){ document.getElementById('xl110').innerHTML = document.getElementById( 'input110').value; })
+            document.getElementById('clr115').addEventListener('click', function(){ document.getElementById('xxl115').innerHTML = document.getElementById( 'input115').value; }) 
+
+
+            document.getElementById('total').addEventListener('click', function(){ document.getElementById('totaltable').innerHTML = document.getElementById( 'totalinput').value; }) 
+            document.getElementById('clrtotal').addEventListener('click', function(){ document.getElementById('totaltable').innerHTML = document.getElementById( 'totalinput').value; })
+
+        </script>
+
+
+        <!-- excel파일로 추출하는 javascript 코드 -->
         <script>
 
             function exportToExcel(formID, filename = ''){
@@ -312,35 +379,87 @@
 
 
 
+        <!-- excel파일을 테이블로 불러오는 javascript 코드 -->
         <script>
+            document.getElementById("ex_file").onchange = (evt) => {
+            // (A) NEW FILE READER
+            var reader = new FileReader();
+            var numbering = 0;
+            
+            // (B) ON FINISH LOADING
+            reader.addEventListener("loadend", (evt) => {
+                // (B1) GET HTML TABLE
+                var table = document.getElementById("importexcel");
+                    table.innerHTML = "";
 
-                var inputbox = document.getElementById('place-input');
+                // (B2) GET THE FIRST WORKSHEET
+                var workbook = XLSX.read(evt.target.result, {type: "binary"}),
+                    worksheet = workbook.Sheets[workbook.SheetNames[0]],
+                    range = XLSX.utils.decode_range(worksheet["!ref"]);
 
-                inputbox.onkeyup = function(){
-                    document.getElementById('style').innerHTML = inputbox.value;
+                // (B3) READ EXCEL CELLS & INSERT ROWS/COLUMNS
+                for (let row=range.s.r; row<=range.e.r; row++) {
+                let r = table.insertRow();
+                
+                for (let col=range.s.c; col<=range.e.c; col++) {
+                    let c = r.insertCell(),
+                    xcell = worksheet[XLSX.utils.encode_cell({r:row, c:col})];
+                    c.innerHTML = xcell.v;
+                    c.setAttribute('id', 'excel'+numbering)
+                    numbering++;
                 }
+                }
+            });
+            // (C) START - READ SELECTED EXCEL FILE
+            reader.readAsArrayBuffer(evt.target.files[0]);
+            };
 
-                document.getElementById('add90').addEventListener('click', function(){ document.getElementById('xs90').innerHTML = document.getElementById( 'input90').value; })
-                document.getElementById('add95').addEventListener('click', function(){ document.getElementById('s95').innerHTML = document.getElementById( 'input95').value; })
-                document.getElementById('add100').addEventListener('click', function(){ document.getElementById('m100').innerHTML = document.getElementById( 'input100').value; })
-                document.getElementById('add105').addEventListener('click', function(){ document.getElementById('l105').innerHTML = document.getElementById( 'input105').value; })
-                document.getElementById('add110').addEventListener('click', function(){ document.getElementById('xl110').innerHTML = document.getElementById( 'input110').value; })
-                document.getElementById('add115').addEventListener('click', function(){ document.getElementById('xxl115').innerHTML = document.getElementById( 'input115').value; }) 
-                
-                
-                document.getElementById('del90').addEventListener('click', function(){ document.getElementById('xs90').innerHTML = document.getElementById( 'input90').value; })
-                document.getElementById('del95').addEventListener('click', function(){ document.getElementById('s95').innerHTML = document.getElementById( 'input95').value; })
-                document.getElementById('del100').addEventListener('click', function(){ document.getElementById('m100').innerHTML = document.getElementById( 'input100').value; })
-                document.getElementById('del105').addEventListener('click', function(){ document.getElementById('l105').innerHTML = document.getElementById( 'input105').value; })
-                document.getElementById('del110').addEventListener('click', function(){ document.getElementById('xl110').innerHTML = document.getElementById( 'input110').value; })
-                document.getElementById('del115').addEventListener('click', function(){ document.getElementById('xxl115').innerHTML = document.getElementById( 'input115').value; }) 
-
-
+                var outputbox = 
+                    document.getElementById('importexcel').getElementsByTagName('tr')[1].getElementsByTagName('td')[2].innerHTML;
+                    document.getElementById('input95').value.appendChild(outputbox);
 
         </script>
 
 
 
+
+
+        <!-- style input폼에 텍스트 입력시 styleout 테이블에 자동 입력되는 스크립트 //내가 뭔가 잘못알고 있는듯.
+        <script>
+            var outputbox = document.getElementById('styleout');
+            outputbox.onkeyup = function(){
+                document.getElementById('place-input').innerHTML = outputbox.value;
+            }            
+        </script> -->
+
+        <!-- 테이블을 생성해주는 스크립트. 함수를 지정해주면 onclick로도 가능할듯
+        <script>
+            var table = document.createElement('table');
+            for (var i = 1; i < 6; i++){
+                var tr = document.createElement('tr');   
+
+                var td1 = document.createElement('td');
+                var td2 = document.createElement('td');
+                var td3 = document.createElement('td');
+
+                td1.setAttribute('class', 'className');
+                td2.setAttribute('class', 'sdfg');
+
+                var text1 = document.createTextNode('Text1');
+                var text2 = document.createTextNode('Text2');
+                var text3 = document.createTextNode('Text3');
+
+                td1.appendChild(text1);
+                td2.appendChild(text2);
+                td3.appendChild(text3);
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+
+                table.appendChild(tr);
+            }
+            document.body.appendChild(table);
+        </script> -->
 
     </div>
     

@@ -333,5 +333,5 @@ td {
 }
 
 .table {
-    display: none;
+    display: block;
 }
