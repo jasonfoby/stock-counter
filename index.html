@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--  모바일에서 확대방지가 포함되어있음. maximum-scale=1.0, user-scalable=no" -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+
+    <title>Document</title>
+</head>
+    <body>
+    
+
+    <div class="container">
+
+            <form class="head">
+                <label class="title">재고 카운터</label>
+                <label class="sub-title">현장에서 수시 실사를 모바일 하나로 가능합니다!</label>
+            </form>
+
+            <!-- 밑줄 -->
+            <hr>
+
+            <form class="navbar">
+                <div class="mens">
+                    <span><a href="/index.html" style="text-decoration: none; color:black;">HOME</a></span>
+                    <hr>
+                    <button id="mens-btn" type="button">남성</button>
+                    <hr>
+                    <button id="womens-btn" type="button">여성</button>
+                    <hr>
+                    <button id="child-btn" type="button">아동</button>
+                </div>                        
+            </form>
+
+
+
+            <div class="content-body">
+                <ul class="mens-content">
+                    <li class="select-menu"><a href="/mantop.html" style="text-decoration: none; color:black;">상의</a></li>
+                    <li class="select-menu">하의</li>
+                </ul>                
+                <ul class="womens-content">
+                    <li class="select-menu">상의</li>
+                    <li class="select-menu">하의</li>
+                </ul>
+                <ul class="child-content">
+                    <li class="select-menu">상의</li>
+                    <li class="select-menu">하의</li>
+                </ul>
+            </div>
+
+            <div class="space"></div>
+            <div class="space"></div>
+            <div class="space"></div>
+            
+
+            <div class="notice">
+                <p class="noticetitle">공지사항</p>
+                <div >
+                    <ul class="noticecontent">
+                        <li style="font-weight: bold;">2022년 8월 24일:</li>
+                            <li style="font-size: 12px;">재고 카운터의 서비스를 시작하였습니다. 아래의 간단한 사용방법 메뉴얼을 참고하시면 좀 더 수월한 재고실사가 가능합니다. 사용중 발견한 오류나 버그를 신고해주시면 어플리케이션 운영 및 발전에 큰 도움이 됩니다.<br><br>문의 및 신고 ibanisac@gmail.com</li>
+                            
+                        <div class="space"></div>
+                        <div class="space"></div>
+                    </ul>    
+                </div>
+            </div>
+
+            <div>
+                <form class="mainitem">
+                    <lable class="mainitem1">사용방법<br><br>메뉴얼</lable>
+                    <lable class="mainitem1">준비중</lable>
+                    <lable class="mainitem1">준비중</lable>
+                    
+                </form>
+            </div>
+
+
+
+        <!--  네비게이션 스크립트  -->
+        <script>
+
+            document.getElementById('mens-btn').addEventListener('click', function(){
+                document.getElementsByClassName('mens-content')[0].classList.toggle('view');
+            })
+
+            document.getElementById('womens-btn').addEventListener('click', function(){
+                document.getElementsByClassName('womens-content')[0].classList.toggle('view1');
+            })
+
+            document.getElementById('child-btn').addEventListener('click', function(){
+                document.getElementsByClassName('child-content')[0].classList.toggle('view2');
+            })
+
+            document.getElementById('mens-btn').addEventListener('click', function(){
+                document.getElementsByClassName('womens-content')[0].classList.toggle('women-margin');
+            })
+
+            document.getElementById('mens-btn').addEventListener('click', function(){
+                document.getElementsByClassName('child-content')[0].classList.toggle('men-click-child');
+            })
+
+            document.getElementById('womens-btn').addEventListener('click', function(){
+                document.getElementsByClassName('child-content')[0].classList.toggle('women-click-child');
+            })
+
+        </script>
+
+
+
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--  모바일에서 확대방지가 포함되어있음. maximum-scale=1.0, user-scalable=no" -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+
+    <title>Document</title>
+</head>
+    <body>
+    
+            <!-- excel로 출력 테이블폼 css의 .table에서 display: none으로 숨겨둠 -->
+            <table id="excel" class="table">
+                <tr>
+                    <td scope="col" style="font-weight:bold;">STYLE</td>
+                    <td scope="col" style="font-weight:bold;">XS 90</td>
+                    <td scope="col" style="font-weight:bold;">X 95</td>
+                    <td scope="col" style="font-weight:bold;">M 100</td>
+                    <td scope="col" style="font-weight:bold;">L 105</td>
+                    <td scope="col" style="font-weight:bold;">XL 110</td>
+                    <td scope="col" style="font-weight:bold;">XXL 115</td>
+                    <td scope="col" style="font-weight:bold;">TOTAL</td>
+                </tr>
+                <tr>
+                    <td id="style"></td>
+                    <td id="xs90">0</td>
+                    <td id="s95">0</td>
+                    <td id="m100">0</td>
+                    <td id="l105">0</td>
+                    <td id="xl110">0</td>
+                    <td id="xxl115">0</td>
+                    <td id="totaltable">0</td>
+                </tr>
+            </table>
+
+
+
+
+            <!-- table로 입력 테이블폼 css의 .table에서 display: none으로 숨겨둠 -->
+            <table id="importexcel" class="table">
+                <tr>
+                    <td scope="col" style="font-weight:bold;">STYLE</td>
+                    <td scope="col" style="font-weight:bold;">XS 90</td>
+                    <td scope="col" style="font-weight:bold;">X 95</td>
+                    <td scope="col" style="font-weight:bold;">M 100</td>
+                    <td scope="col" style="font-weight:bold;">L 105</td>
+                    <td scope="col" style="font-weight:bold;">XL 110</td>
+                    <td scope="col" style="font-weight:bold;">XXL 115</td>
+                    <td scope="col" style="font-weight:bold;">TOTAL</td>
+                </tr>
+                <tr>
+                    <td id="styleout">0</td>
+                    <td id="xs90out">0</td>
+                    <td id="s95out">0</td>
+                    <td id="m100out">0</td>
+                    <td id="l105out">0</td>
+                    <td id="xl110out">0</td>
+                    <td id="xxl115out">0</td>
+                    <td id="totaltableout">0</td>
+                </tr>
+            </table>
+
+
+
+
+    <div class="container">
+
+            <form class="head">
+                <label class="title">재고 카운터</label>
+                <label class="sub-title">현장에서 수시 실사를 모바일 하나로 가능합니다!</label>
+            </form>
+
+            <!-- 밑줄 -->
+            <hr>
+
+            <form class="navbar">
+                <div class="mens">
+                    <span ><a href="index.html" style="text-decoration: none; color:black;">HOME</a></span>
+                    <hr>
+                    <button id="mens-btn" type="button">남성</button>
+                    <hr>
+                    <button id="womens-btn" type="button">여성</button>
+                    <hr>
+                    <button id="child-btn" type="button">아동</button>
+                </div>                        
+            </form>
+
+
+
+            <div class="content-body">
+                <ul class="mens-content">
+                    <li class="select-menu"><a href="/mantop.html" style="text-decoration: none; color:black;">상의</a></li>
+                    <li class="select-menu">하의</li>
+                </ul>                
+                <ul class="womens-content">
+                    <li class="select-menu">상의</li>
+                    <li class="select-menu">하의</li>
+                </ul>
+                <ul class="child-content">
+                    <li class="select-menu">상의</li>
+                    <li class="select-menu">하의</li>
+                </ul>
+            </div>
+
+
+
+            <div class="input-content">
+                <form id="test" name="form">
+
+                    
+                    <div>
+                        <input id="placeinput" type="text" class="style-num" name="STYLE NUMBER" placeholder="이곳에 품번을 등록해주세요!">
+                    </div>
+
+
+                        <div class="space"></div>
+                        <div class="space"></div>
+
+
+                    <!--    90    -->
+                    <input id="title90" class="size-box" value="XS 90" readonly>
+                    <input id="input90" class="readonly-input" name="90" value="0">
+                    <input id="add90" type="button" class="add-btn" value="ADD" onclick="document.form.input90.value++;" readonly />
+                    <input id="del90" type="button" class="del-btn" value="DEL" onclick="delstop1()" readonly>
+                    <input id="clr90" type="button" class="clr-btn" value="CLR" onclick="document.form.input90.value=0;" readonly>
+
+                    
+
+                    <!--    95    -->
+                    <input id="title95" class="size-box" value="S 95" readonly>
+                    <input id="input95" class="readonly-input" name="95" value="0" >
+                    <input id="add95" type="button" class="add-btn" value="ADD" onclick="document.form.input95.value++;" readonly>
+                    <input id="del95" type="button" class="del-btn" value="DEL" onclick="delstop2()" readonly>
+                    <input id="clr95" type="button" class="clr-btn" value="CLR" onclick="document.form.input95.value=0;" readonly>
+
+                    
+
+                    <!--    100    -->
+                    <input id="title100" class="size-box" value="M 100" readonly>
+                    <input id="input100" class="readonly-input" name="100" value="0" >
+                    <input id="add100" type="button" class="add-btn" value="ADD" onclick="document.form.input100.value++;" readonly>
+                    <input id="del100" type="button" class="del-btn" value="DEL" onclick="delstop3()" readonly>
+                    <input id="clr100" type="button" class="clr-btn" value="CLR" onclick="document.form.input100.value=0;" readonly>
+
+                    
+                    
+                    <!--    105    -->
+                    <input id="title105" class="size-box" value="L 105" readonly>
+                    <input id="input105" class="readonly-input" name="105" value="0" >
+                    <input id="add105" type="button" class="add-btn" value="ADD" onclick="document.form.input105.value++;" readonly>
+                    <input id="del105" type="button" class="del-btn" value="DEL" onclick="delstop4()" readonly>
+                    <input id="clr105" type="button" class="clr-btn" value="CLR" onclick="document.form.input105.value=0;" readonly>
+
+                                  
+
+                    <!--    110    -->                    
+                    <input id="title110" class="size-box" value="XL 110" readonly>
+                    <input id="input110" class="readonly-input" name="110" value="0" >
+                    <input id="add110" type="button" class="add-btn" value="ADD" onclick="document.form.input110.value++;" readonly>
+                    <input id="del110" type="button" class="del-btn" value="DEL" onclick="delstop5()" readonly>
+                    <input id="clr110" type="button" class="clr-btn" value="CLR" onclick="document.form.input110.value=0;" readonly>              
+
+                    
+
+                    <!--    115    -->
+                    <input id="title115" class="size-box" value="XXL 115" readonly>
+                    <input id="input115" class="readonly-input" name="115" value="0" >
+                    <input id="add115" type="button" class="add-btn" value="ADD" onclick="document.form.input115.value++;" readonly>
+                    <input id="del115" type="button" class="del-btn" value="DEL" onclick="delstop6()" readonly>
+                    <input id="clr115" type="button" class="clr-btn" value="CLR" onclick="document.form.input115.value=0;" readonly>
+
+
+                    
+                            <div class="space"></div>
+                            <div class="space"></div>
+
+
+                    <!--   total   -->
+                    <input id="totalinput" class="total" name="total" value="0" readonly>
+                    <input id="total" type="button" class="add-btn" value="TOTAL" onclick="result()" readonly>
+                    <input id="clrtotal" type="button" class="clr-btn" value="RESET" onclick="window.location.reload()" readonly>
+                    <button id="export" type="button" class="exp-btn" onclick="exportToExcel('excel')" value="EXCEL" readonly>SAVE</button>
+                    <!--   for속성으로 아래 인풋폼으로 대처해준다. 레이블은 css속성으로 숨겨주고 레이블과 인풋이 같이 존재한다.  -->
+                    <label for="ex_file">LOAD</label> 
+                    <input id="ex_file" class="add-btn" value="LOAD" type="file" accept=".xls" readonly>
+                    
+
+                    
+                </form>
+            </div>
+
+
+
+
+
+
+        <!-- excel파일을 테이블로 불러오는 javascript 코드 -->
+        <script>
+            document.getElementById("ex_file").onchange = (evt) => {
+            // (A) NEW FILE READER
+            var reader = new FileReader();
+            var numbering = 0;
+            
+            // (B) ON FINISH LOADING
+            reader.addEventListener("loadend", (evt) => {
+                // (B1) GET HTML TABLE
+                var table = document.getElementById("importexcel");
+                    table.innerHTML = "";
+
+                // (B2) GET THE FIRST WORKSHEET
+                var workbook = XLSX.read(evt.target.result, {type: "binary"}),
+                    worksheet = workbook.Sheets[workbook.SheetNames[0]],
+                    range = XLSX.utils.decode_range(worksheet["!ref"]);
+
+                // (B3) READ EXCEL CELLS & INSERT ROWS/COLUMNS
+                for (let row=range.s.r; row<=range.e.r; row++) {
+                let r = table.insertRow();
+                
+                for (let col=range.s.c; col<=range.e.c; col++) {
+                    let c = r.insertCell(),
+                    xcell = worksheet[XLSX.utils.encode_cell({r:row, c:col})];
+                    c.innerHTML = xcell.v;
+                    c.setAttribute('id', 'excel'+numbering)
+                    numbering++;
+                }
+                }
+
+            // 로드한 테이블에서 인풋 폼에 입력하는 스크립트
+            var tablevalue1 = document.getElementById("importexcel").getElementsByTagName("tr")[1].getElementsByTagName("td")[0].innerHTML;
+            document.getElementById("placeinput").value = tablevalue1;
+            var tablevalue1 = document.getElementById("importexcel").getElementsByTagName("tr")[1].getElementsByTagName("td")[1].innerHTML;
+            document.getElementById("input90").value = tablevalue1;
+            var tablevalue1 = document.getElementById("importexcel").getElementsByTagName("tr")[1].getElementsByTagName("td")[2].innerHTML;
+            document.getElementById("input95").value = tablevalue1;
+            var tablevalue1 = document.getElementById("importexcel").getElementsByTagName("tr")[1].getElementsByTagName("td")[3].innerHTML;
+            document.getElementById("input100").value = tablevalue1;
+            var tablevalue1 = document.getElementById("importexcel").getElementsByTagName("tr")[1].getElementsByTagName("td")[4].innerHTML;
+            document.getElementById("input105").value = tablevalue1;
+            var tablevalue1 = document.getElementById("importexcel").getElementsByTagName("tr")[1].getElementsByTagName("td")[5].innerHTML;
+            document.getElementById("input110").value = tablevalue1;
+            var tablevalue1 = document.getElementById("importexcel").getElementsByTagName("tr")[1].getElementsByTagName("td")[6].innerHTML;
+            document.getElementById("input115").value = tablevalue1;
+
+            });
+            // (C) START - READ SELECTED EXCEL FILE
+            reader.readAsArrayBuffer(evt.target.files[0]);
+            };
+        </script>
+
+
+        <!--  네비게이션 스크립트  -->
+        <script>
+
+            document.getElementById('mens-btn').addEventListener('click', function(){
+                document.getElementsByClassName('mens-content')[0].classList.toggle('view');
+            })
+
+            document.getElementById('womens-btn').addEventListener('click', function(){
+                document.getElementsByClassName('womens-content')[0].classList.toggle('view1');
+            })
+
+            document.getElementById('child-btn').addEventListener('click', function(){
+                document.getElementsByClassName('child-content')[0].classList.toggle('view2');
+            })
+
+            document.getElementById('mens-btn').addEventListener('click', function(){
+                document.getElementsByClassName('womens-content')[0].classList.toggle('women-margin');
+            })
+
+            document.getElementById('mens-btn').addEventListener('click', function(){
+                document.getElementsByClassName('child-content')[0].classList.toggle('men-click-child');
+            })
+
+            document.getElementById('womens-btn').addEventListener('click', function(){
+                document.getElementsByClassName('child-content')[0].classList.toggle('women-click-child');
+            })
+
+        </script>
+
+
+        <!--  값 추가 스크립트 OLD -->
+        <!--
+            <script>
+                document.getElementById('add90').addEventListener('click', function(){
+                    document.form.input90.value++;
+                })
+
+                document.getElementById('add95').addEventListener('click', function(){
+                    document.form.input95.value++;
+                })           
+
+                document.getElementById('add100').addEventListener('click', function(){
+                    document.form.input100.value++;
+                })  
+
+                document.getElementById('add105').addEventListener('click', function(){
+                    document.form.input105.value++;
+                })  
+
+                document.getElementById('add110').addEventListener('click', function(){
+                    document.form.input110.value++;
+                })  
+
+                document.getElementById('add115').addEventListener('click', function(){
+                    document.form.input115.value++;
+                })              
+
+            </script>
+    -->
+
+
+        <!--   음수방지 스크립트   -->
+        <script>
+            function delstop1(){
+                if (document.form.input90.value > 0 ){
+                    document.form.input90.value--;
+                }}
+            function delstop2(){
+                if (document.form.input95.value > 0 ){
+                    document.form.input95.value--;
+                }}
+            function delstop3(){
+                if (document.form.input100.value > 0 ){
+                    document.form.input100.value--;
+                }}
+            function delstop4(){
+                if (document.form.input105.value > 0 ){
+                    document.form.input105.value--;
+                }}
+            function delstop5(){
+                if (document.form.input110.value > 0 ){
+                    document.form.input110.value--;
+                }}
+            function delstop6(){
+                if (document.form.input115.value > 0 ){
+                    document.form.input115.value--;
+                }}
+
+
+        </script>        
+
+
+        <!--    합산 스크립트     -->
+        <script>
+
+            function result(){
+            var num1 = document.form.input90.value;
+            var num2 = document.form.input95.value;
+            var num3 = document.form.input100.value;
+            var num4 = document.form.input105.value;
+            var num5 = document.form.input110.value;
+            var num6 = document.form.input115.value;
+            var total = parseInt(num1) + parseInt(num2) + parseInt(num3) + parseInt(num4) + parseInt(num5) + parseInt(num6);
+            document.form.totalinput.value = total;
+        } 
+
+        </script>
+
+
+        <!-- 가상 테이블에 입력되는 javascript 폼 -->
+        <script>
+
+            var inputbox = document.getElementById('placeinput');
+            inputbox.onkeyup = function(){
+                document.getElementById('style').innerHTML = inputbox.value;
+            }
+
+            document.getElementById('add90').addEventListener('click', function(){ document.getElementById('xs90').innerHTML = document.getElementById( 'input90').value; })
+            document.getElementById('add95').addEventListener('click', function(){ document.getElementById('s95').innerHTML = document.getElementById( 'input95').value; })
+            document.getElementById('add100').addEventListener('click', function(){ document.getElementById('m100').innerHTML = document.getElementById( 'input100').value; })
+            document.getElementById('add105').addEventListener('click', function(){ document.getElementById('l105').innerHTML = document.getElementById( 'input105').value; })
+            document.getElementById('add110').addEventListener('click', function(){ document.getElementById('xl110').innerHTML = document.getElementById( 'input110').value; })
+            document.getElementById('add115').addEventListener('click', function(){ document.getElementById('xxl115').innerHTML = document.getElementById( 'input115').value; }) 
+
+
+            document.getElementById('del90').addEventListener('click', function(){ document.getElementById('xs90').innerHTML = document.getElementById( 'input90').value; })
+            document.getElementById('del95').addEventListener('click', function(){ document.getElementById('s95').innerHTML = document.getElementById( 'input95').value; })
+            document.getElementById('del100').addEventListener('click', function(){ document.getElementById('m100').innerHTML = document.getElementById( 'input100').value; })
+            document.getElementById('del105').addEventListener('click', function(){ document.getElementById('l105').innerHTML = document.getElementById( 'input105').value; })
+            document.getElementById('del110').addEventListener('click', function(){ document.getElementById('xl110').innerHTML = document.getElementById( 'input110').value; })
+            document.getElementById('del115').addEventListener('click', function(){ document.getElementById('xxl115').innerHTML = document.getElementById( 'input115').value; }) 
+
+
+            document.getElementById('clr90').addEventListener('click', function(){ document.getElementById('xs90').innerHTML = document.getElementById( 'input90').value; })
+            document.getElementById('clr95').addEventListener('click', function(){ document.getElementById('s95').innerHTML = document.getElementById( 'input95').value; })
+            document.getElementById('clr100').addEventListener('click', function(){ document.getElementById('m100').innerHTML = document.getElementById( 'input100').value; })
+            document.getElementById('clr105').addEventListener('click', function(){ document.getElementById('l105').innerHTML = document.getElementById( 'input105').value; })
+            document.getElementById('clr110').addEventListener('click', function(){ document.getElementById('xl110').innerHTML = document.getElementById( 'input110').value; })
+            document.getElementById('clr115').addEventListener('click', function(){ document.getElementById('xxl115').innerHTML = document.getElementById( 'input115').value; }) 
+
+
+            document.getElementById('total').addEventListener('click', function(){ document.getElementById('totaltable').innerHTML = document.getElementById( 'totalinput').value; }) 
+            document.getElementById('clrtotal').addEventListener('click', function(){ document.getElementById('totaltable').innerHTML = document.getElementById( 'totalinput').value; })
+
+        </script>
+
+
+        <!-- excel파일로 추출하는 javascript 코드 -->
+        <script>
+
+            function exportToExcel(formID, filename = ''){
+                var downloadLink;
+                var dataType = 'application/vnd.ms-excel';
+                var formSelect = document.getElementById(formID);
+                var formHTML = formSelect.outerHTML.replace(/ /g, '%20');
+                
+                // Specify file name
+                filename = filename?filename+'.xls':'excel_data.xls';
+                
+                // Create download link element
+                downloadLink = document.createElement("a");
+                
+                document.body.appendChild(downloadLink);
+                
+                if(navigator.msSaveOrOpenBlob){
+                    var blob = new Blob(['\ufeff', formHTML], {
+                        type: dataType
+                    });
+                    navigator.msSaveOrOpenBlob( blob, filename);
+                }else{
+                    // Create a link to the file
+                    downloadLink.href = 'data:' + dataType + ', ' + formHTML;
+                
+                    // Setting the file name
+                    downloadLink.download = filename;
+                    
+                    //triggering the function
+                    downloadLink.click();
+                }
+            }
+
+
+        </script>
+
+
+
+
+        <!-- style input폼에 텍스트 입력시 styleout 테이블에 자동 입력되는 스크립트 //내가 뭔가 잘못알고 있는듯.
+        <script>
+            var outputbox = document.getElementById('styleout');
+            outputbox.onkeyup = function(){
+                document.getElementById('placeinput').innerHTML = outputbox.value;
+            }            
+        </script> -->
+
+        <!-- 테이블을 생성해주는 스크립트. 함수를 지정해주면 onclick로도 가능할듯
+        <script>
+            var table = document.createElement('table');
+            for (var i = 1; i < 6; i++){
+                var tr = document.createElement('tr');   
+
+                var td1 = document.createElement('td');
+                var td2 = document.createElement('td');
+                var td3 = document.createElement('td');
+
+                td1.setAttribute('class', 'className');
+                td2.setAttribute('class', 'sdfg');
+
+                var text1 = document.createTextNode('Text1');
+                var text2 = document.createTextNode('Text2');
+                var text3 = document.createTextNode('Text3');
+
+                td1.appendChild(text1);
+                td2.appendChild(text2);
+                td3.appendChild(text3);
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+
+                table.appendChild(tr);
+            }
+            document.body.appendChild(table);
+        </script> -->
+
+    </div>
+    
+</body>
+</html>
