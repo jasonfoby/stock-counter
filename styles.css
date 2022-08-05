@@ -384,8 +384,8 @@ td {
     color: rgba(0, 0, 0, 0.75);
     font-weight: bolder;
     text-align: center;
-    background: rgb(172,195,34);
-    background: linear-gradient(0deg, rgba(172,195,34,0.78) 0%, rgba(44,255,122,0.7755273984593838) 100%);
+background: rgb(181,196,89);
+background: linear-gradient(0deg, rgba(181,196,89,0.78) 0%, rgba(96,196,133,0.36629598348348347) 100%);
     width: 100px;
     height: 150px;
     border-radius: 3px;
