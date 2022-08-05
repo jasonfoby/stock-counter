@@ -88,12 +88,10 @@ form {
     text-shadow: 1px 1px 5px #aaa;
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
 
 .mainitem {
-    padding: 30px;
+    padding-top: 15px;
+    
     align-items: center;
     display: flex;
     justify-content: center;
@@ -222,6 +220,21 @@ form {
     letter-spacing: -0.7px;
 }
 
+.pnatsizebox {
+    background-color: rgba(222, 184, 135);
+    font-weight: bolder;
+    font-size: 19px;
+    box-shadow: 3px 3px 5px rgba(181, 179, 179);
+    border: 2px solid #333;
+    border-radius: 3px;
+    width: 85px;
+    height: 30px;
+    text-align: center;
+    /*  자간  */
+    letter-spacing: -0.7px;
+    
+}
+
 .readonly-input {
     font-weight: bolder;
     font-size: 20px;
@@ -231,6 +244,19 @@ form {
     border-radius: 3px;
     width: 65px;
     height: 48px;
+    text-align: center;
+    user-select: none
+}
+
+.pantreadonly {
+    font-weight: bolder;
+    font-size: 20px;
+    background-color: rgb(242, 242, 242);
+    box-shadow: 3px 3px 5px rgba(181, 179, 179);
+    border: 2px solid #333;
+    border-radius: 3px;
+    width: 65px;
+    height: 30px;
     text-align: center;
     user-select: none
 }
@@ -250,6 +276,20 @@ form {
     text-align: center
 }
 
+.pantadd {
+    background-color: rgba(96, 161, 130);
+    font-weight: bolder;
+    font-size: 19px;
+    box-shadow: 3px 3px 5px rgba(181, 179, 179);
+    border: 2px solid #333;
+    border-radius: 3px;
+    width: 65px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center
+}
 
 
 .del-btn {
@@ -267,6 +307,21 @@ form {
     text-align: center    
 }
 
+.pantdel {
+    background-color: rgba(213, 59, 32);
+    font-weight: bolder;
+    font-size: 19px;
+    box-shadow: 3px 3px 5px rgba(181, 179, 179);
+    border: 2px solid #333;
+    border-radius: 3px;
+    width: 65px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center  
+}
+
 .clr-btn {
     background-color: rgba(40, 124, 166);
     font-weight: bolder;
@@ -282,7 +337,20 @@ form {
     text-align: center
 }
 
-
+.pantclr {
+    background-color: rgba(40, 124, 166);
+    font-weight: bolder;
+    font-size: 19px;
+    box-shadow: 3px 3px 5px rgba(181, 179, 179);
+    border: 2px solid #333;
+    border-radius: 3px;
+    width: 65px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center
+}
 
 .space {
     height: 5px;
@@ -315,6 +383,18 @@ form {
     box-shadow: 3px 3px 5px rgba(181, 179, 179);
 }
 
+.panttotal {
+    border-radius: 3px;
+    border: 2px solid #333;
+    width: 85px;
+    height: 30px;
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
+    background-color: rgb(242, 242, 242);
+    box-shadow: 3px 3px 5px rgba(181, 179, 179);
+}
+
 .exp-btn {
     background-color: rgba(27, 89, 34);
     font-weight: bolder;
@@ -330,6 +410,20 @@ form {
     text-align: center;
 }
 
+.pantsave {
+    background-color: rgba(27, 89, 34);
+    font-weight: bolder;
+    font-size: 19px;
+    box-shadow: 3px 3px 5px rgb(140, 138, 138);
+    border: 2px solid #333;
+    border-radius: 3px;
+    width: 65px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+}
 
 
 
@@ -339,6 +433,9 @@ form {
 }
 
 
+.container {
+    overflow: auto;
+}
 
 
 
@@ -355,7 +452,23 @@ background-color: rgba(96, 161, 130);
     align-items: center;
     justify-content: center;
     display: flex;
-    text-align: center
+    text-align: center;
+}
+
+.input-content .pantadd {
+    display: inline-block;
+    background-color: rgba(96, 161, 130);
+        font-weight: bolder;
+        font-size: 19px;
+        box-shadow: 1px 1px 3px rgba(181, 179, 179);
+        border: 2px solid #333;
+        border-radius: 3px;
+        width: 65px;
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        text-align: center
 }
 
 .input-content input[type="file"] {  /* type="file" 폼 숨기기 */
@@ -394,4 +507,9 @@ background: linear-gradient(0deg, rgba(181,196,89,0.78) 0%, rgba(96,196,133,0.36
     align-items: center;
     display: flex;
     box-shadow: 2px 2px 5px #aaa;
+}
+
+
+::-webkit-scrollbar {
+    display: none;
 }
