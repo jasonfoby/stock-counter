@@ -67,6 +67,7 @@ form {
     border: 1px solid rgb(170, 170, 170);
     border-radius: 3px;
     padding: 10px;
+    box-shadow: 2px 2px 5px #aaa;
 }
 
 .noticetitle {
@@ -379,14 +380,16 @@ td {
 }
 
 .mainitem1 {
-    color: rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 3px rgb(110, 110, 110);
+    color: rgba(0, 0, 0, 0.75);
     font-weight: bolder;
     text-align: center;
-    background-color: rgb(219, 173, 200);
+    background: rgb(172,195,34);
+    background: linear-gradient(0deg, rgba(172,195,34,0.78) 0%, rgba(44,255,122,0.7755273984593838) 100%);
     width: 100px;
     height: 150px;
     border-radius: 3px;
-    border: 2px solid #5557;
+    border: 1px solid #5554;
     justify-content: center;
     align-items: center;
     display: flex;
